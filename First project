@@ -1,0 +1,54 @@
+import random
+import time
+
+print("This is a number guessing game!")
+print()
+
+while True:
+    try:
+        print()
+        starting_num = int(input("Enter the starting number: "))
+        ending_num = int(input("Enter the ending number: "))
+        num_of_try = int(input("Enter the number of attempts you want: "))
+        times = int(input("Enter the guessing time (in seconds): "))
+
+        for i in range(times):
+            print("Time left:", times - i, "GUESS!", (i + 1) * ".")
+            time.sleep(1)
+
+        print()
+
+        value = random.randint(starting_num, ending_num)
+
+        for attempt in range(num_of_try):
+            check = int(input("Enter your answer: "))
+
+            if check == value:
+                print("YES! YOU GUESSED IT CORRECTLY!!!")
+                print(f"It was {value}, and you did it in {attempt + 1} attempts.")
+                print()
+                break
+            elif check < value:
+                print("OPPS, too low!")
+                print()
+            elif check > value:
+                print("OPPS, too high!")
+                print()
+            else:
+                print("YOUR ANSWER IS OUT OF RANGE!")
+                print(f"Your answer must be between {starting_num} and {ending_num}")
+                print()
+
+        else:
+            print(f"Sorry, you've used all {num_of_try} attempts. The correct number was {value}.")
+            print()
+
+    except ValueError:
+        print("Invalid input! Please enter a valid number.")
+    except Exception as e:
+        print(f"SOMETHING WENT WRONG: {e}")
+
+    repeat = input("Type 'q' to quit or press Enter to play again: ").strip().lower()
+    if repeat == 'q':
+        print("Exiting the program. Goodbye!")
+        break
