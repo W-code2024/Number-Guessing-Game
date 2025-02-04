@@ -1,0 +1,2 @@
+- 👋 Hi there to whoever is reading this, I want to say that this reposetory is just a pratice folder that i am created to save my web development learning progress and to share my cool prjects with friends.
+- ❤️ Thanks For Reading
